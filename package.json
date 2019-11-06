@@ -2,6 +2,9 @@
   "name": "nutsforshells",
   "version": "1.0.0",
   "description": "Administración malacológica",
+  "engines": {
+    "node": "13.0.1"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jrussellrichards/NutsForShell.git"
+    "url": "git+https://github.com/jrussellrichards/NutsForShells-api.git"
   },
   "author": "Javier Richards",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jrussellrichards/NutsForShell/issues"
+    "url": "https://github.com/jrussellrichards/NutsForShells-api/issues"
   },
-  "homepage": "https://github.com/jrussellrichards/NutsForShell#readme",
+  "homepage": "https://github.com/jrussellrichards/NutsForShells-api#readme",
   "dependencies": {
     "@material-ui/icons": "^3.0.1",
     "body-parser": "^1.18.3",
