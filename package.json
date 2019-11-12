@@ -6,7 +6,6 @@
     "node": "13.0.1"
   },
   "main": "index.js",
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jrussellrichards/NutsForShells-api.git"
