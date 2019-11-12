@@ -2,30 +2,18 @@ const express = require('express');
 const app = express();
 var mysql = require('mysql');
 const port = process.env.PORT || 5000;
+const connection = require('./config');
+const Routes = require('./Routes/shellRequestRoutes');
 app.use(express.json());
 
-
-var connection = mysql.createConnection({
-  host: 'ftp.museonaturalia.cl',
-  user: 'museonat_javier',
-  password: 'javier123.',
-  database: 'museonat_shells'
-    
-});
-
+Routes(app)
 
 function handleDisconnect() {
   // the old one cannot be reused.
 
   connection.connect(function (err) {              // The server is either down
     if (err) {
-      connection = mysql.createConnection({
-        host: 'ftp.museonaturalia.cl',
-        user: 'museonat_javier',
-        password: 'javier123.',
-        database: 'museonat_shells'
-
-      });                                    // or restarting (takes a while sometimes).
+      connection()
       console.log('error when connecting to db:', err);
       setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
     }                                     // to avoid a hot loop, and to allow our node script to
