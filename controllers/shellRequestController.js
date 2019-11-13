@@ -1,38 +1,31 @@
 const connection = require('../config');
+const Shell = require('../Models/shell');
 
 exports.getShell = function (req, res) {
-    connection.query('select * from shell where id=' + req.params.shellId, function (err, rows, fields) {
-
-        res.send(rows);
-        // console.log(rows)
-        console.log('consultaste un id')
-
-    });
+    Shell.findAll({
+        where: {
+          id: req.params.shellId
+        }
+      }).then(shell => {
+        res.send(shell)});
 
 };
 
 
 exports.getShells = function (req, res) {
-    connection.query('select * from shell ', function (err, rows, fields) {
-
-        res.send(rows);
-        // console.log(rows)
-        console.log('consultaste todos los id')
-
-    });
+    Shell.findAll().then(shell => {
+        res.send(shell);
+      });
 
 };
 
 
 exports.deleteShell = function (req, res) {
-    connection.query('select * from shell ', function (err, rows, fields) {
-
-        connection.query('delete from shell where id = ' + req.params.shellId , function (err, rows, fields) {
-
-            res.send('eliminaste un id' );
-        });
-
-    });
+    Shell.destroy({
+        where: {
+          id: req.params.shellId
+        }
+      });
 
 };
 
@@ -45,3 +38,4 @@ exports.deleteShell = function (req, res) {
 //     });
   
 //   });
+
