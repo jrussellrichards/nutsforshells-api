@@ -1,15 +1,7 @@
-var config = {
-    database: {
-        host:      'localhost',     // database host
-        user:       'root',         // your database username
-        password: '',         // your database password
-        port:       3306,         // default MySQL port
-        db:       'shells'         // your database name
-    },
-    server: {
-        host: '127.0.0.1',
-        port: '5000'
-    }
-}
- 
-module.exports = config
+const Sequelize = require('sequelize');
+var mysql = require('mysql');
+
+module.exports = new Sequelize('museonat_shells', 'museonat_javier', 'javier123.', {
+    host: 'ftp.museonaturalia.cl',
+    dialect: 'mysql'
+});

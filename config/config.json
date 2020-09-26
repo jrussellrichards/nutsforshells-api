@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "museonat_javier",
+        "password": "javier123.",
+        "database": "museonat_shells",
+        "host": "ftp.museonaturalia.cl",
+        "dialect": "mysql",
+        "operatorsAliases": false
+    },
+    "test": {
+        "username": "museonat_root",
+        "password": "Javier123.",
+        "database": "museonat_futbol",
+        "host": "ftp.museonaturalia.cl",
+        "dialect": "mysql",
+        "operatorsAliases": false
+    },
+    "production": {
+        "username": "museonat_root",
+        "password": "Javier123.",
+        "database": "museonat_futbol",
+        "host": "ftp.museonaturalia.cl",
+        "dialect": "mysql",
+        "operatorsAliases": false
+    }
+}
