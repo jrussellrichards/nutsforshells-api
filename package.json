@@ -11,6 +11,9 @@
     "url": "git+https://github.com/jrussellrichards/NutsForShells-api.git"
   },
   "author": "Javier Richards",
+  "scripts": {
+    "start": "node server.js"
+ },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jrussellrichards/NutsForShells-api/issues"
