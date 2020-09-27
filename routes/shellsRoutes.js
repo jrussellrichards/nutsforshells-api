@@ -19,11 +19,8 @@ module.exports = function(app) {
     .get(shellsController.getShells)
 
     app
-    .route("/eliminado")
-    .post(shellsController.deleteShells)
-
-    
-
+    .route('/eliminado')
+    .delete(shellsController.deleteShells)
 
 
 };

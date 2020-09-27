@@ -22,7 +22,6 @@ exports.deleteTournament = function (req, res) {
   };
 
   exports.deleteShells = function (req, res) {
-    console.log('algo'+req.body.ids_eliminados)
     Shell.destroy({
       where: {
         id:
@@ -32,6 +31,7 @@ exports.deleteTournament = function (req, res) {
   
       }
     });
+    res.send(req.body.ids_eliminados);
   
   };
   
