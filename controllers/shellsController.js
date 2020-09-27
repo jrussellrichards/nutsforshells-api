@@ -1,101 +1,47 @@
 const Sequelize = require('sequelize');
-const Users = require('../models/user');
+const Shell = require('../models/shell');
 const Op = Sequelize.Op
-const bcrypt = require('bcrypt')
-const moment = require('moment')
-const jwt = require('jwt-simple')
 
-exports.getUsers = function(req, res) {
-
-    Users.findAll({
-
-    }).then(users => {
-        res.send(users)
-    });
-
-};
-
-
-exports.MainUser = function(req, res) {
-    Users.findAll({
-        where: {
-            id: req.userId
+exports.deleteTournament = function (req, res) {
+    Shell.destroy({
+      where: {
+        id:
+        {
+          [Op.in]: req.params.shellId.split(',')
         }
-    }).then(user => {
-        res.send(user)
+  
+      }
     });
-};
+  };
 
-const createToken = (user) => {
-    let payload = {
-        userId: user.dataValues.id,
-        createAt: moment().unix(),
-        expiresAt: moment().add(1, 'day').unix()
-    }
-    return jwt.encode(payload, process.env.TOKEN_KEY);
-};
-
-
-exports.login = function(req, res) {
-
-    Users.findAll({
-        where: {
-            email: req.body.email
-        }
-
-    }).then(user => {
-        if (user[0] === undefined) {
-            res.status(401)
-            res.json({
-                error: 'Error, email not found'
-            })
-        } else {
-            pass = user[0].password
-            name = user[0].name
-            const equals = bcrypt.compareSync(req.body.password, pass)
-            if (!equals) {
-                res.status(401)
-                res.json({
-                    error: 'Error, email or password incorrect'
-                })
-            } else {
-                res.json({
-                    token: createToken(user[0]),
-                    oka: true,
-                    name
-
-                })
-            }
-        }
+  exports.getShells = function (req, res) {
+    Shell.findAll().then(shell => {
+      res.send(shell);
     });
+  
+  };
 
-};
+  exports.deleteShells = function (req, res) {
+    console.log('algo'+req.body.ids_eliminados)
+    Shell.destroy({
+      where: {
+        id:
+        {
+          [Op.in]: req.body.ids_eliminados
+        }
+  
+      }
+    });
+  
+  };
+  
+  // app.post('/eliminado', function (req, res) {
+  //   console.log('eliminando', req.body.ids_eliminados  )
+  //   console.log('delete from shell where id in (' + req.body.ids_eliminados+')')
 
-exports.CreateAccount = async(req, res) => {
-
-    try {
-        const user = await Users.create({
-            id: req.body.id,
-            email: req.body.email,
-            password: bcrypt.hashSync(req.body.password, 10),
-            name: req.body.name
-        });
-        return res.status(201).json({
-            user,
-        });
-    } catch (error) {
-        return res.status(500).json({ error: error.message })
-    }
-}
-
-function ok(body) {
-    resolve({ ok: true, text: () => Promise.resolve(JSON.stringify(body)) })
-}
-
-function unauthorised() {
-    resolve({ status: 401, text: () => Promise.resolve(JSON.stringify({ message: 'Unauthorised' })) })
-}
-
-function error(message) {
-    resolve({ status: 400, text: () => Promise.resolve(JSON.stringify({ message })) })
-}
+  //   connection.query('delete from shell where id in (' + req.body.ids_eliminados+')', function (err, rows, fields) {
+  
+  //     res.send('eliminado' + req.data);
+  //   });
+  
+  // });

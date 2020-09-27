@@ -9,10 +9,6 @@ const Shells = sequelize.define('shells', {
         allowNull: false,
         primaryKey: true
     },
-    email: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     familia: {
         type: Sequelize.STRING,
         allowNull: false
@@ -29,11 +25,11 @@ const Shells = sequelize.define('shells', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    tamaño: {
+    tamano: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    pais: {
+    ciudad: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -42,107 +38,19 @@ const Shells = sequelize.define('shells', {
         allowNull: false
     },
     precio: {
-        type: Sequelize.STRING,
+        type: Sequelize.FLOAT,
         allowNull: false
     },
-    habitat: {
+    habitad: {
         type: Sequelize.STRING,
         allowNull: false
     },
 
 
 }, {
-    tableName: 'shells',
+    tableName: 'shell',
     timestamps: false
         // options
 });
 
 module.exports = Shells;
-
-
-
-
-export default  [
-    {
-      name: "Familia",
-      label: "Familia",
-      options: {
-        filter: true,
-        sort: false
-      }
-    },
-  
-    {
-      name: "Genero",
-      options: {
-        filter: true,
-        sort: false
-      }
-    },
-  
-    {
-      name: "Especie",
-      options: {
-        filter: true,
-        sort: false
-      }
-    },
-  
-    {
-      name: "Calidad",
-      options: {
-        filter: true,
-        sort: false
-      }
-    },
-  
-    {
-      name: "Tamaño",
-      options: {
-        filter: false,
-        sort: false
-      }
-    },
-  
-    {
-      name: "País",
-      options: {
-        filter: true,
-        sort: false
-      }
-    },
-  
-    {
-      name: "Comentario",
-      options: {
-        filter: false,
-        sort: false
-      }
-    },
-  
-    {
-      name: "Precio",
-      options: {
-        filter: true,
-        sort: false
-      }
-    },
-  
-    {
-      name: "Habitat",
-      options: {
-        filter: true,
-        sort: false
-      }
-    },
-    {
-      name: "ID",
-      options: {
-        // display: "excluded",
-        filter: false,
-        sort: false,
-        download: false,
-      },
-    },
-  
-  ];
