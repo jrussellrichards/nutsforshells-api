@@ -11,39 +11,39 @@ const Shells = sequelize.define('shells', {
     },
     familia: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     genero: {
-        type: Sequelize.DATE,
-        allowNull: false
+        type: Sequelize.STRING,
+        allowNull: true
     },
     especie: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     calidad: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     tamano: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     ciudad: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     comentario: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     precio: {
         type: Sequelize.FLOAT,
-        allowNull: false
+        allowNull: true
     },
     habitad: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
 
 

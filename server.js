@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 const Routes = require('./routes/shellsRoutes');
 
+Routes(app)
 
 var connection = mysql.createConnection({
   host: 'ftp.museonaturalia.cl',
@@ -26,7 +27,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-Routes(app)
 
 
 

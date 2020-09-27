@@ -35,6 +35,28 @@ exports.deleteTournament = function (req, res) {
   
   };
   
+
+  exports.createShell = async (req, res) => {
+    console.log('este es el body'+{...req.body})
+    try {
+      const shell = await Shell.create({
+        familia: req.body.familia,
+        genero: req.body.genero,
+        especie: req.body.especie,
+        calidad: req.body.calidad,
+        tamano: req.body.tamano,
+        ciudad: req.body.ciudad,
+        comentario: req.body.comentario,
+        precio: Number(req.body.precio),
+        habitad: req.body.habitat,
+      } );
+      return res.status(201).json({
+        shell,
+      });
+    } catch (error) {
+      return res.status(500).json({error: error.message})
+    }
+  }
   // app.post('/eliminado', function (req, res) {
   //   console.log('eliminando', req.body.ids_eliminados  )
   //   console.log('delete from shell where id in (' + req.body.ids_eliminados+')')
