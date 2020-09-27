@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Administración malacológica",
   "engines": {
-    "node": "13.0.1"
+    "node": "12.18.4"
   },
   "main": "index.js",
   "repository": {
@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/jrussellrichards/NutsForShells-api#readme",
   "dependencies": {
-    "@material-ui/icons": "^3.0.1",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "create-react-app": "^3.2.0",
