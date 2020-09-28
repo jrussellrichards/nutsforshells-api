@@ -5,8 +5,9 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 const Routes = require('./routes/shellsRoutes');
 var cors = require('cors')
-Routes(app)
 app.use(cors())
+
+// console.log that your server is up and running
 var connection = mysql.createConnection({
   host: 'ftp.museonaturalia.cl',
   user: 'museonat_javier',
@@ -15,16 +16,13 @@ var connection = mysql.createConnection({
     
 });
 
-
-
-handleDisconnect();
-// console.log that your server is up and running
-
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+Routes(app)
+handleDisconnect();
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
