@@ -4,9 +4,9 @@ var mysql = require('mysql');
 const port = process.env.PORT || 5000;
 app.use(express.json());
 const Routes = require('./routes/shellsRoutes');
-
+var cors = require('cors')
 Routes(app)
-
+app.use(cors())
 var connection = mysql.createConnection({
   host: 'ftp.museonaturalia.cl',
   user: 'museonat_javier',
