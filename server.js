@@ -19,7 +19,6 @@ var connection = mysql.createConnection({
 
 handleDisconnect();
 // console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -27,6 +26,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
 
 

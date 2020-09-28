@@ -15,9 +15,19 @@ exports.deleteTournament = function (req, res) {
   };
 
   exports.getShells = function (req, res) {
-    Shell.findAll().then(shell => {
-      res.send(shell);
-    });
+    try {
+
+      Shell.findAll().then(shell => {
+        res.send(shell);
+      });
+      
+    } catch (error) {
+
+      res.send(error);
+
+      
+    }
+
   
   };
 
