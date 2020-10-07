@@ -13,6 +13,7 @@ module.exports = function(app) {
 
     app.route('/shell')
     .post(shellsController.createShell)
+    .put(shellsController.updateShell)
 
 
 };
